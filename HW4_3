@@ -1,0 +1,26 @@
+d = int(input())
+n = int(input())
+list = []
+for i in range(n):
+  list.append(input().split(','))
+  for j in range(d + 1):
+    list[i][j] = int(list[i][j])
+
+fault = []
+for k in range(d):
+  for i in range(n): 
+    counter = 0
+    for j in range(n):
+      if list[j][k] >= list[i][k]:
+        if list[j][d] == list[i][d]:
+          counter += 1
+      else:
+        if list[j][d] != list[i][d]:
+          counter += 1
+    if counter <= (n - counter):
+      f = counter
+    else:
+      f = n - counter
+    fault.append(f)
+    
+print(min(fault))
